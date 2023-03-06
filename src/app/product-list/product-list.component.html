@@ -1,1 +1,23 @@
 <h2>Products</h2>
+
+<!--With *ngFor, the <div> repeats for each product in the list. this list comes from mock data products.ts-->
+<div *ngFor="let product of products">
+  <h3>
+    <!--To make each product name a link to product details, we add the <a> element around {{ product.name }}.-->
+    <!--[title]="product.name + ' details'" using property binding here allows to se the title when we hover over the product name-->
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+  <!--ngIf directive: The application displays the name and description of each product in the list. Notice that the final product does not have a description paragraph. Angular doesn't create the <p> element because the product's description property is empty.-->
+  <p *ngIf="product.description">
+    {{ product.description }}
+  </p>
+
+  <button type="button" (click)="share()">Share</button>
+
+  <!--to display ProductAlertsComponent as a child of ProductListComponent, using property binding to pass the current product as input to the component-->
+  <!--bind <app-product-alerts to the onNotify() the (notify) event comes from the eventEmitter in productList.ts-->
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
