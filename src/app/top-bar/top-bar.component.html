@@ -1,5 +1,8 @@
 <a [routerLink]="['/']">
-    <h1>My Store</h1>
+  <h1>My Store</h1>
 </a>
 
-<a class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
+<!--routerLink="/cart" routes the checkout button to the cart component, once the user clicks on it the cartComponent will be shown-->
+<a routerLink="/cart" class="button fancy-button"
+  ><i class="material-icons">shopping_cart</i>Checkout</a
+>

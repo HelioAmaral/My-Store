@@ -1,1 +1,11 @@
-<p>product-details works!</p>
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+    <h3>{{product.name}}</h3>
+    <!--the | currency is a currency pipe, it transforms product.price from a number to a currency string-->
+    <h4>{{product.price | currency}}</h4>
+    <p>{{product.description}}</p>
+    <!--add a button with the label Buy and bind the click() event to the 
+        addToCart() - this will update the product details template with a Buy button that adds the current product to the cart -->
+    <button type="button" (click)="addToCart(product)">Buy</button>
+</div>

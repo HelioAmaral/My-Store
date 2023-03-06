@@ -5,7 +5,8 @@
   <h3>
     <!--To make each product name a link to product details, we add the <a> element around {{ product.name }}.-->
     <!--[title]="product.name + ' details'" using property binding here allows to se the title when we hover over the product name-->
-    <a [title]="product.name + ' details'">
+    <!--include a routerLink with the product.id as parameter. the RouterLink helps customize the anchor element, in this case the route, or URL, contains one fixed segment, /products. The final segment is variable, inserting the .id property of the current product-->
+    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
       {{ product.name }}
     </a>
   </h3>
